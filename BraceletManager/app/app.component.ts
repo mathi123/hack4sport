@@ -8,5 +8,5 @@ import { OnInit } from '@angular/core';
 
 
 export class AppComponent {
-    title = 'Hack4Sports Dashboard'
+    title = 'Pulstadia Dashboard'
 }

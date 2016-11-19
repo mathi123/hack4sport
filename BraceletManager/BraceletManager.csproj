@@ -74,9 +74,11 @@
     <Content Include="bootstrap.min.css" />
     <Content Include="bootstrap.min.js" />
     <Content Include="Index.html" />
+    <Content Include="jquery-3.1.1.min.js" />
     <Content Include="package.json" />
     <Content Include="packages.config" />
     <Content Include="app\dashboard\dashboard.component.template.html" />
+    <Content Include="bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\BraceletManager.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -91,6 +93,7 @@
     <Content Include="releaseNotes.txt" />
     <Content Include="styles.css" />
     <Content Include="systemjs.config.js" />
+    <Content Include="tether.min.js" />
     <Content Include="TyList.html" />
     <Content Include="Web.config" />
   </ItemGroup>
