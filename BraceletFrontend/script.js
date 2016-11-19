@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     log('loaded');
     
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-    
+
     if (WebSocket) {
         log('start websocket');
         startWebSocket();
@@ -21,34 +21,50 @@ document.addEventListener('DOMContentLoaded', function () {
         
         websocket.onopen = function () { log('connected to websocket'); };
         websocket.onerror = function (error) { log('websocket error: ' + error); };
-        websocket.onmessage = function (message) { handleMessage(message); };   
+        websocket.onmessage = function (message) { handleMessage(message); };
+
+        function handleMessage(message) {
+            var data = JSON.parse(message.data);
+            handleData(data);
+        }
     }
     
     function startPull() {
         var uri = 'http://braceletbackend.azurewebsites.net/api/braceletfallback';
         log(uri);
-        var httpRequest = new XMLHttpRequest();
-
-        if (!httpRequest) {
-            log('Cannot create an XMLHTTP instance');
-            return;
+        pullLoop();
+        
+        function pullLoop() {
+            setTimeout(function () {
+                log('in loop');
+                doRequest();
+                pullLoop();
+            }, 1000);
         }
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState === XMLHttpRequest.DONE) {
-                if (httpRequest.status === 200) {
-                    var object = JSON.parse(httpRequest.responseText);
-                    handleMessage(object);
-                } else {
-                    log('Uri: ' + uri + ' returned status: ' + httpRequest.status);
-                }
+
+        function doRequest() {
+            var httpRequest = new XMLHttpRequest();
+
+            if (!httpRequest) {
+                log('Cannot create an XMLHTTP instance');
+                return;
             }
-        };
-        httpRequest.open('GET', uri);
-        httpRequest.send();
+            httpRequest.onreadystatechange = function () {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        var data = JSON.parse(httpRequest.responseText);
+                        handleData(data);
+                    } else {
+                        log('Uri: ' + uri + ' returned status: ' + httpRequest.status);
+                    }
+                }
+            };
+            httpRequest.open('GET', uri);
+            httpRequest.send();
+        }
     }
     
-    function handleMessage(message) {
-        var data = JSON.parse(message.data);
+    function handleData(data) {
         log(data);
         if (navigator.vibrate && data.IsVibration === true) {
             log('vibration started');
