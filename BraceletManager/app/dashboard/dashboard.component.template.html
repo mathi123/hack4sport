@@ -1,6 +1,98 @@
-﻿<div>
-    <div class="form-control">
-        <button type="button" class="btn btn-success" (click)="vibrate()">Vibrate!</button>
+﻿<div class="mt-1">
+    <div class="form-group row">
+        <label for="inputVibrationSeconds" class="col-xs-4 col-form-label">Vibrate</label>
+        <div class="col-xs-6">
+            <input id="inputVibrationSeconds" type="number" class="form-control" [(ngModel)]="state.VibrationInSeconds" />
+        </div>
+        <div class="col-xs-2">
+            <button type="button" class="btn btn-success" (click)="vibrate()">Vibrate!</button>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputText" class="col-xs-4 col-form-label">Print text</label>
+        <div class="col-xs-6">
+            <input id="inputText" type="text" class="form-control" [(ngModel)]="state.Text" />
+        </div>
+        <div class="col-xs-2">
+            <button type="button" class="btn btn-primary" (click)="save()">Print</button>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-4 col-form-label">Quick pick color</label>
+
+        <div class="col-md-8">
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setColor('white')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-primary text-xs-center col-md-2 mr-1" (click)="setColor('#0275d8')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-success text-xs-center col-md-2 mr-1" (click)="setColor('#5cb85c')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-warning text-xs-center col-md-2 mr-1" (click)="setColor('#f0ad4e')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-info text-xs-center col-md-2 mr-1" (click)="setColor('#5bc0de')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+            <div class="card card-inverse card-danger text-xs-center col-md-2 mr-1" (click)="setColor('#d9534f')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote"></blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-md-4 col-form-label">Quick pick text</label>
+
+        <div class="col-md-8">
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('please wait...')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">Please wait!</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('5')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">5</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('4')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">4</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('3')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">3</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('2')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">2</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('1')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">1</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center col-md-2 mr-1" (click)="setText('Get up stand up!')">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">Get up stand up!</blockquote>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

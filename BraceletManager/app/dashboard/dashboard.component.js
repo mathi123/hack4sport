@@ -16,17 +16,37 @@ let Dashboard = class Dashboard {
         this.service = service;
         this.state = new bracelet_state_1.BraceletState();
         this.state.Color = "white";
+        this.state.VibrationInSeconds = 0.5;
     }
     vibrate() {
         this.state.IsVibration = true;
-        if (this.state.Color === "white") {
-            this.state.HasColor = true;
-            this.state.Color = "green";
-        }
-        else {
-            this.state.Color = "white";
-        }
+        this.save();
+        this.state.IsVibration = false;
+    }
+    save() {
         this.service.save(this.state);
+    }
+    setColor(color) {
+        this.state.HasColor = true;
+        this.state.Color = color;
+        this.save();
+    }
+    setText(text) {
+        this.state.Text = text;
+        this.save();
+    }
+    countDown() {
+        const start = 10;
+        //Observable
+        //    .timer(100, 100) // timer(firstValueDelay, intervalBetweenValues)
+        //    .map(i => start - i)
+        //    .take(start + 1)
+        //    .subscribe(i => console.log(i));
+        //// or
+        //Observable
+        //    .range(0, start + 1)
+        //    .map(i => start - i)
+        //    .subscribe(i => console.log(i));
     }
 };
 Dashboard = __decorate([

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     var logArea = document.getElementById('log-area');
     var colorBox = document.getElementById('color-box');
+    var textArea = document.getElementById("textArea");
+
     log('loaded');
     
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -76,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             log('white');
             colorBox.style.backgroundColor = 'white';
+        }
+        if (data.Text) {
+            textArea.innerHTML = data.Text;
         }
     }
     
