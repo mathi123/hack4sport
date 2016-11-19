@@ -11,11 +11,17 @@ export class Dashboard {
     state: BraceletState = new BraceletState();
 
     constructor(private service: BraceletStateService) {
-            
+        this.state.Color = "white";
     }
 
     public vibrate() {
-        this.state.IsVibrating = true;
+        this.state.IsVibration = true;
+        if (this.state.Color === "white") {
+            this.state.HasColor = true;
+            this.state.Color = "green";
+        } else {
+            this.state.Color = "white";
+        }
         this.service.save(this.state);
     }
 }

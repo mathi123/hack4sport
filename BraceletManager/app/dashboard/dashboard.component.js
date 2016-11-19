@@ -15,9 +15,17 @@ let Dashboard = class Dashboard {
     constructor(service) {
         this.service = service;
         this.state = new bracelet_state_1.BraceletState();
+        this.state.Color = "white";
     }
     vibrate() {
-        this.state.IsVibrating = true;
+        this.state.IsVibration = true;
+        if (this.state.Color === "white") {
+            this.state.HasColor = true;
+            this.state.Color = "green";
+        }
+        else {
+            this.state.Color = "white";
+        }
         this.service.save(this.state);
     }
 };

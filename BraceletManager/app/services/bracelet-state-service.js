@@ -15,7 +15,9 @@ let BraceletStateService = class BraceletStateService {
         this.http = http;
     }
     save(state) {
-        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state))
+        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        let options = new http_1.RequestOptions({ headers: headers });
+        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state), options)
             .subscribe(() => console.log("state updated"));
     }
 };
