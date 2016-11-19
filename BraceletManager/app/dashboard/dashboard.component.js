@@ -9,14 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
+const bracelet_state_service_1 = require("../services/bracelet-state-service");
+const bracelet_state_1 = require("../models/bracelet-state");
 let Dashboard = class Dashboard {
+    constructor(service) {
+        this.service = service;
+        this.state = new bracelet_state_1.BraceletState();
+    }
+    vibrate() {
+        this.state.IsVibrating = true;
+        this.service.save(this.state);
+    }
 };
 Dashboard = __decorate([
     core_1.Component({
         selector: 'dashboard',
         templateUrl: '/app/dashboard/dashboard.component.template.html'
     }), 
-    __metadata('design:paramtypes', [])
+    __metadata('design:paramtypes', [bracelet_state_service_1.BraceletStateService])
 ], Dashboard);
 exports.Dashboard = Dashboard;
 //# sourceMappingURL=dashboard.component.js.map

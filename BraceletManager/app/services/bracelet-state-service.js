@@ -15,7 +15,8 @@ let BraceletStateService = class BraceletStateService {
         this.http = http;
     }
     save(state) {
-        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state));
+        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state))
+            .subscribe(() => console.log("state updated"));
     }
 };
 BraceletStateService = __decorate([

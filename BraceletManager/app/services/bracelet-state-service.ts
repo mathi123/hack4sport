@@ -11,6 +11,7 @@ export class BraceletStateService {
     }
 
     save(state: BraceletState) {
-        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state));
+        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state))
+             .subscribe(() => console.log("state updated"));
     }
 }
