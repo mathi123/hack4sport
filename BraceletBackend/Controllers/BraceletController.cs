@@ -14,7 +14,7 @@ namespace BraceletBackend.Controllers
     [EnableCors("*","*","*")]
     public class BraceletController : ApiController
     {
-        private static BraceletState LastState = new BraceletState()
+        public static BraceletState LastState = new BraceletState()
         {
             IsVibration = false,
             Color = "white",
@@ -25,12 +25,6 @@ namespace BraceletBackend.Controllers
         {
             HttpContext.Current.AcceptWebSocketRequest(new BraceletWebSocketHandler());
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
-        }
-
-        [Route("fallback")]
-        public BraceletState Fallback()
-        {
-            return LastState;
         }
 
         [HttpPut]

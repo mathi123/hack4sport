@@ -112,6 +112,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BraceletWebSocketHandler.cs" />
     <Compile Include="Controllers\BraceletController.cs" />
+    <Compile Include="Controllers\BraceletFallbackController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
