@@ -12,6 +12,7 @@ namespace BraceletBackend.Controllers
     [EnableCors("*","*","*")]
     public class BraceletFallbackController : ApiController
     {
+        [HttpGet]
         public BraceletState Fallback()
         {
             return BraceletController.LastState;
