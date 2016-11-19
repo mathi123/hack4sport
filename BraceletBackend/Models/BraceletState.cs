@@ -6,6 +6,6 @@ namespace BraceletBackend.Models
     {
         public bool HasColor { get; set; }
         public string Color { get; set; }
-        public DateTime NextVibration { get; set; }
+        public bool IsVibration { get; set; }
     }
 }

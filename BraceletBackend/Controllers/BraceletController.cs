@@ -12,19 +12,16 @@ namespace BraceletBackend.Controllers
 {
     public class BraceletController : ApiController
     {
-        public static List<string> Colors = new List<string>()
-        {
-            "Yellow",
-            "Green",
-            "Blue",
-            "Red",
-            "Orange"
-        };
-
         public HttpResponseMessage Get()
         {
             HttpContext.Current.AcceptWebSocketRequest(new BraceletWebSocketHandler());
             return Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
+        }
+
+        [HttpPut]
+        public void Update([FromBody] BraceletState state)
+        {
+            BraceletWebSocketHandler.BroadCast(state);
         }
     }
 }
