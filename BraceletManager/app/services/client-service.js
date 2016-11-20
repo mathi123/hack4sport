@@ -10,21 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var BraceletStateService = (function () {
-    function BraceletStateService(http) {
+require('rxjs/add/operator/toPromise');
+var ClientService = (function () {
+    function ClientService(http) {
         this.http = http;
     }
-    BraceletStateService.prototype.save = function (state) {
+    ClientService.prototype.getClients = function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state), options)
-            .subscribe(function () { return console.log("state updated"); });
+        this.http.get("http://braceletbackend.azurewebsites.net/api/client", options)
+            .toPromise()
+            .then(function (r) { return r.json(); });
     };
-    BraceletStateService = __decorate([
+    ClientService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], BraceletStateService);
-    return BraceletStateService;
+    ], ClientService);
+    return ClientService;
 }());
-exports.BraceletStateService = BraceletStateService;
-//# sourceMappingURL=bracelet-state-service.js.map
+exports.ClientService = ClientService;
+//# sourceMappingURL=client-service.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,13 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component } from '@angular/core';
-import { BraceletStateService } from "../services/bracelet-state-service";
-import { BraceletState } from "../models/bracelet-state";
-export var Dashboard = (function () {
-    function Dashboard(service) {
+var core_1 = require('@angular/core');
+var bracelet_state_service_1 = require("../services/bracelet-state-service");
+var bracelet_state_1 = require("../models/bracelet-state");
+var client_service_1 = require("../services/client-service");
+var Dashboard = (function () {
+    function Dashboard(service, clientsService) {
         this.service = service;
-        this.state = new BraceletState();
+        this.clientsService = clientsService;
+        this.state = new bracelet_state_1.BraceletState();
+        this.clients = 0;
         this.state.Color = "white";
         this.state.VibrationInSeconds = 0.5;
     }
@@ -34,7 +38,12 @@ export var Dashboard = (function () {
         this.state.Text = text;
         this.save();
     };
-    Dashboard.prototype.countDown = function () {
+    Dashboard.prototype.refreshClients = function () {
+        var _this = this;
+        this.clientsService.getClients()
+            .then(function (clients) { return _this.clients = clients; });
+    };
+    Dashboard.prototype.startSequence = function () {
         var start = 10;
         //Observable
         //    .timer(100, 100) // timer(firstValueDelay, intervalBetweenValues)
@@ -48,12 +57,13 @@ export var Dashboard = (function () {
         //    .subscribe(i => console.log(i));
     };
     Dashboard = __decorate([
-        Component({
+        core_1.Component({
             selector: 'dashboard',
             templateUrl: '/app/dashboard/dashboard.component.template.html'
         }), 
-        __metadata('design:paramtypes', [BraceletStateService])
+        __metadata('design:paramtypes', [bracelet_state_service_1.BraceletStateService, client_service_1.ClientService])
     ], Dashboard);
     return Dashboard;
 }());
+exports.Dashboard = Dashboard;
 //# sourceMappingURL=dashboard.component.js.map

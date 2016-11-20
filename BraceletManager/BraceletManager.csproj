@@ -80,7 +80,7 @@
     <Content Include="app\dashboard\dashboard.component.template.html" />
     <Content Include="bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\BraceletManager.pubxml" />
-    <Content Include="tsconfig.json" />
+    <Content Include="typings.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,6 +111,7 @@
     <TypeScriptCompile Include="app\dashboard\dashboard.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\models\bracelet-state.ts" />
+    <TypeScriptCompile Include="app\services\client-service.ts" />
     <TypeScriptCompile Include="app\services\bracelet-state-service.ts" />
   </ItemGroup>
   <ItemGroup />

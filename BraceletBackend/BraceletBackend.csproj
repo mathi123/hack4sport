@@ -113,6 +113,7 @@
     <Compile Include="BraceletWebSocketHandler.cs" />
     <Compile Include="Controllers\BraceletController.cs" />
     <Compile Include="Controllers\BraceletFallbackController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

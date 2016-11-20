@@ -1,14 +1,15 @@
-import { RouterModule } from '@angular/router';
-import { Dashboard } from './dashboard/dashboard.component';
+"use strict";
+var router_1 = require('@angular/router');
+var dashboard_component_1 = require('./dashboard/dashboard.component');
 var appRoutes = [
     {
         path: '',
-        component: Dashboard
+        component: dashboard_component_1.Dashboard
     },
     {
         path: '**',
-        component: Dashboard
+        component: dashboard_component_1.Dashboard
     }
 ];
-export var routing = RouterModule.forRoot(appRoutes);
+exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routing.js.map

@@ -1,8 +1,17 @@
 ﻿<div class="mt-1">
     <div class="form-group row">
+        <label for="inputClients" class="col-xs-4 col-form-label">Connect</label>
+        <div class="col-xs-6">
+            <input id="inputClients" type="number" class="form-control" [(ngModel)]="clients" disabled="disabled"/>
+        </div>
+        <div class="col-xs-2">
+            <button type="button" class="btn btn-secondary" (click)="refreshClients()">Refresh!</button>
+        </div>
+    </div>
+    <div class="form-group row">
         <label for="inputVibrationSeconds" class="col-xs-4 col-form-label">Vibrate</label>
         <div class="col-xs-6">
-            <input id="inputVibrationSeconds" type="number" class="form-control" [(ngModel)]="state.VibrationInSeconds" />
+            <input id="inputVibrationSeconds" type="number" class="form-control" [(ngModel)]="state.VibrationInSeconds"/>
         </div>
         <div class="col-xs-2">
             <button type="button" class="btn btn-success" (click)="vibrate()">Vibrate!</button>
@@ -11,7 +20,7 @@
     <div class="form-group row">
         <label for="inputText" class="col-xs-4 col-form-label">Print text</label>
         <div class="col-xs-6">
-            <input id="inputText" type="text" class="form-control" [(ngModel)]="state.Text" />
+            <input id="inputText" type="text" class="form-control" [(ngModel)]="state.Text"/>
         </div>
         <div class="col-xs-2">
             <button type="button" class="btn btn-primary" (click)="save()">Print</button>
@@ -91,6 +100,46 @@
                 <div class="card-block">
                     <blockquote class="card-blockquote">Get up stand up!</blockquote>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label class="col-md-4 col-form-label">Countdown sequence</label>
+
+        <div class="col-md-8">
+            <div class="card text-xs-center card-primary col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">5</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center card-warning col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">4</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center card-success col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">3</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center card-info col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">2</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center card-danger col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">1</blockquote>
+                </div>
+            </div>
+            <div class="card text-xs-center card-primary col-md-2 mr-1">
+                <div class="card-block">
+                    <blockquote class="card-blockquote">Get up!!!</blockquote>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="btn btn-primary" (click)="startSequence()">Start it!</button>
             </div>
         </div>
     </div>

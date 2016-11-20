@@ -8,11 +8,12 @@ import { Dashboard } from './dashboard/dashboard.component'
 
 import { routing } from './app.routing';
 import {BraceletStateService} from "./services/bracelet-state-service";
+import {ClientService} from "./services/client-service";
 
 @NgModule({
     imports: [BrowserModule, routing, HttpModule, FormsModule],
     declarations: [AppComponent, Dashboard],
-    providers: [BraceletStateService],
+    providers: [BraceletStateService, ClientService],
     bootstrap: [AppComponent]
 })
 

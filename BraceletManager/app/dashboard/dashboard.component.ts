@@ -2,6 +2,7 @@
 import {BraceletStateService} from "../services/bracelet-state-service";
 import {BraceletState} from "../models/bracelet-state";
 import { Observable } from "rxjs/Observable";
+import {ClientService} from "../services/client-service";
 
 @Component({
     selector: 'dashboard',
@@ -10,8 +11,9 @@ import { Observable } from "rxjs/Observable";
 
 export class Dashboard {
     state: BraceletState = new BraceletState();
+    clients: number = 0;
 
-    constructor(private service: BraceletStateService) {
+    constructor(private service: BraceletStateService, private clientsService: ClientService) {
         this.state.Color = "white";
         this.state.VibrationInSeconds = 0.5;
     }
@@ -37,7 +39,12 @@ export class Dashboard {
         this.save();
     }
 
-    public countDown() {
+    public refreshClients() {
+        this.clientsService.getClients()
+            .then((clients: number) => this.clients = clients);
+    }
+
+    public startSequence() {
         const start = 10;
 
         //Observable

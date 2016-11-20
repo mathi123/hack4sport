@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,26 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from "@angular/http";
-import { FormsModule } from "@angular/forms";
-import { AppComponent } from './app.component';
-import { Dashboard } from './dashboard/dashboard.component';
-import { routing } from './app.routing';
-import { BraceletStateService } from "./services/bracelet-state-service";
-export var AppModule = (function () {
+var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require("@angular/http");
+var forms_1 = require("@angular/forms");
+var app_component_1 = require('./app.component');
+var dashboard_component_1 = require('./dashboard/dashboard.component');
+var app_routing_1 = require('./app.routing');
+var bracelet_state_service_1 = require("./services/bracelet-state-service");
+var client_service_1 = require("./services/client-service");
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        NgModule({
-            imports: [BrowserModule, routing, HttpModule, FormsModule],
-            declarations: [AppComponent, Dashboard],
-            providers: [BraceletStateService],
-            bootstrap: [AppComponent]
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, app_routing_1.routing, http_1.HttpModule, forms_1.FormsModule],
+            declarations: [app_component_1.AppComponent, dashboard_component_1.Dashboard],
+            providers: [bracelet_state_service_1.BraceletStateService, client_service_1.ClientService],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
 }());
+exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map
