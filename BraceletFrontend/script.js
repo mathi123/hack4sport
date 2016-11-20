@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-    if (WebSocket) {
-        log('start websocket');
-        startWebSocket();
-    } else {
+    //if (WebSocket) {
+    //    log('start websocket');
+    //    startWebSocket();
+    //} else {
         log('start pull');
         startPull();
-    }
+    //}
     
     function startWebSocket() {
         var uri = 'wss://braceletbackend.azurewebsites.net/api/bracelet';
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             log('white');
             colorBox.style.backgroundColor = 'white';
         }
-        if (data.Text) {
+        if (data.Text && data.Text != null && data.Text !== "") {
             textArea.innerHTML = data.Text;
         }
     }

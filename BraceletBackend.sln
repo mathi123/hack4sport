@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraceletManager", "Bracelet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraceletFrontend", "BraceletFrontend\BraceletFrontend.csproj", "{DBED68A3-1BB2-4CC8-9E25-3395B02C9C3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{1183E5E3-62EC-442E-A908-D30009AA6043}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DBED68A3-1BB2-4CC8-9E25-3395B02C9C3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBED68A3-1BB2-4CC8-9E25-3395B02C9C3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBED68A3-1BB2-4CC8-9E25-3395B02C9C3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1183E5E3-62EC-442E-A908-D30009AA6043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1183E5E3-62EC-442E-A908-D30009AA6043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1183E5E3-62EC-442E-A908-D30009AA6043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1183E5E3-62EC-442E-A908-D30009AA6043}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
