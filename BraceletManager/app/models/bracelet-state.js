@@ -1,5 +1,6 @@
-"use strict";
-class BraceletState {
-}
-exports.BraceletState = BraceletState;
+export var BraceletState = (function () {
+    function BraceletState() {
+    }
+    return BraceletState;
+}());
 //# sourceMappingURL=bracelet-state.js.map

@@ -1,4 +1,3 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,22 +7,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const http_1 = require('@angular/http');
-let BraceletStateService = class BraceletStateService {
-    constructor(http) {
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+export var BraceletStateService = (function () {
+    function BraceletStateService(http) {
         this.http = http;
     }
-    save(state) {
-        let headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        let options = new http_1.RequestOptions({ headers: headers });
+    BraceletStateService.prototype.save = function (state) {
+        var headers = new Headers({ 'Content-Type': 'application/json' });
+        var options = new RequestOptions({ headers: headers });
         this.http.put("http://braceletbackend.azurewebsites.net/api/bracelet", JSON.stringify(state), options)
-            .subscribe(() => console.log("state updated"));
-    }
-};
-BraceletStateService = __decorate([
-    core_1.Injectable(), 
-    __metadata('design:paramtypes', [http_1.Http])
-], BraceletStateService);
-exports.BraceletStateService = BraceletStateService;
+            .subscribe(function () { return console.log("state updated"); });
+    };
+    BraceletStateService = __decorate([
+        Injectable(), 
+        __metadata('design:paramtypes', [Http])
+    ], BraceletStateService);
+    return BraceletStateService;
+}());
 //# sourceMappingURL=bracelet-state-service.js.map
