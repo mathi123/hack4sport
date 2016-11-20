@@ -14,7 +14,7 @@ export class ClientService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        this.http.get("http://braceletbackend.azurewebsites.net/api/client", options)
+        return this.http.get("http://braceletbackend.azurewebsites.net/api/client", options)
             .toPromise()
             .then((r:Response) => r.json());
     }

@@ -18,9 +18,15 @@ var Dashboard = (function () {
         this.clientsService = clientsService;
         this.state = new bracelet_state_1.BraceletState();
         this.clients = 0;
+        this.countDown = 16;
+        this.vibrations = 10;
+        this.colorList = ["#0275d8", "#5cb85c", "#f0ad4e", "#5bc0de", "#d9534f"];
         this.state.Color = "white";
         this.state.VibrationInSeconds = 0.5;
     }
+    Dashboard.prototype.ngOnInit = function () {
+        this.refreshClients();
+    };
     Dashboard.prototype.vibrate = function () {
         this.state.IsVibration = true;
         this.save();
@@ -44,7 +50,40 @@ var Dashboard = (function () {
             .then(function (clients) { return _this.clients = clients; });
     };
     Dashboard.prototype.startSequence = function () {
-        var start = 10;
+        var _this = this;
+        if (this.timer != undefined) {
+            // reset timer
+            clearInterval(this.timer);
+            console.log("Resetting timer");
+        }
+        this.countDown = 16;
+        this.timer = setInterval(function () {
+            _this.countDown = _this.countDown - 1;
+            console.log("timer callback");
+            if (_this.countDown === 0) {
+                clearInterval(_this.timer);
+                _this.state.IsVibration = false;
+                _this.state.Text = "Thank you :-)";
+                _this.state.Color = "white";
+            }
+            else if (_this.countDown < _this.vibrations) {
+                _this.state.Text = "Get up bitches!!!";
+                _this.state.IsVibration = true;
+                if (_this.countDown % 2 === 0) {
+                    _this.state.Color = "#f0ad4e";
+                }
+                else {
+                    _this.state.Color = "#d9534f";
+                }
+            }
+            else {
+                var sec = (_this.countDown - _this.vibrations);
+                _this.state.Text = sec + "...";
+                _this.state.HasColor = true;
+                _this.state.Color = _this.colorList[sec - 1];
+            }
+            _this.save();
+        }, 1000);
         //Observable
         //    .timer(100, 100) // timer(firstValueDelay, intervalBetweenValues)
         //    .map(i => start - i)

@@ -18,7 +18,7 @@ var ClientService = (function () {
     ClientService.prototype.getClients = function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        this.http.get("http://braceletbackend.azurewebsites.net/api/client", options)
+        return this.http.get("http://braceletbackend.azurewebsites.net/api/client", options)
             .toPromise()
             .then(function (r) { return r.json(); });
     };
